@@ -389,6 +389,7 @@ header.top { padding-block: 14px; }
 (function(){
   var pages=document.querySelectorAll('.page');
   var route=function(){var h=(window.__H||'#/').replace(/^#\/?/,'');if(h==='kontakt-forma'){return;}
+    var _el=h&&h.indexOf('/')<0?document.getElementById(h):null;if(_el&&!document.querySelector('.page[data-page="'+h+'"]')){var _s=_el.getBoundingClientRect().top+window.pageYOffset-70;window.scrollTo({top:_s,behavior:'smooth'});return;}
     var name=h===''?'home':h;var found=false;
     pages.forEach(function(p){var on=p.getAttribute('data-page')===name;p.style.display=on?'block':'none';if(on)found=true;});
     if(!found){pages.forEach(function(p){p.style.display=p.getAttribute('data-page')==='home'?'block':'none';});name='home';}
@@ -402,7 +403,8 @@ header.top { padding-block: 14px; }
   function crumbs(name){var c=document.getElementById('crumbs'),b=document.getElementById('back');var home=name==='home';c.style.display=home?'none':'block';var art=name.indexOf('blog/')===0;b.setAttribute('href',art?(window.__ROOT+'blog/'):(window.__ROOT||'./'));var en=document.documentElement.lang==='en';b.textContent='← '+(art?(en?'Back to magazine':'Nazad na magazin'):(en?'Back to home':'Nazad na početnu'));}
   function fback(name){var f=document.getElementById('fback');if(!f){f=document.createElement('a');f.id='fback';document.body.appendChild(f);}var home=name==='home';f.style.display=home?'none':'flex';var art=name.indexOf('blog/')===0;f.setAttribute('href',art?(window.__ROOT+'blog/'):(window.__ROOT||'./'));f.textContent=document.documentElement.lang==='en'?'← Back':'← Nazad';}
   var _crumbs=crumbs;crumbs=function(n){_crumbs(n);fback(n);};
-  var _route=route;route=function(){_route();var h=(window.__H||'#/').replace(/^#\/?/,'');if(h==='kontakt-forma')return;crumbs(h===''?'home':h);};
+  var _route=route;route=function(){_route();var h=(window.__H||'#/').replace(/^#\/?/,'');if(h==='kontakt-forma')return;if(h&&h.indexOf('/')<0&&document.getElementById(h)&&!document.querySelector('.page[data-page="'+h+'"]'))return;crumbs(h===''?'home':h);};
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);if(!id||id.indexOf('/')>=0||id==='kontakt-forma')return;var el=document.getElementById(id);if(!el||document.querySelector('.page[data-page="'+id+'"]'))return;e.preventDefault();window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-70,behavior:'smooth'});},true);
   window.addEventListener('hashchange',route);route();
   var q=document.getElementById('q'),cat='';function filt(){var t=(q.value||'').toLowerCase(),n=0;document.querySelectorAll('#bl .post').forEach(function(p){var ok=(!cat||p.dataset.cat===cat)&&(!t||p.dataset.t.indexOf(t)>-1);p.style.display=ok?'':'none';if(ok)n++;});document.getElementById('none').style.display=n?'none':'block';}
   if(q){q.addEventListener('input',filt);document.querySelectorAll('.chipb').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.chipb').forEach(function(x){x.classList.remove('on');});b.classList.add('on');cat=b.dataset.c;filt();});});}
