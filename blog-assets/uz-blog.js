@@ -59,9 +59,14 @@ af.innerHTML='<section class="uz-sec"><div class="uz-wrap"><div class="uz-h2 uz-
 '<div class="uz-box uz-rv"><b>Gastro akademija</b><span>Gastronomske radionice i obuke za firme i pojedince, u partnerstvu.</span></div>'+
 '<div class="uz-box uz-rv"><b>Gotovi događaji</b><span>Cheers to 27, Gastro avantura, Gastro business networking i Dan za decu.</span></div>'+
 '<div class="uz-box uz-rv"><b>AI i digitalni proizvodi</b><span>Sopstvene aplikacije i tim AI agenata.</span></div>'+
-'</div></div></section>';b.appendChild(af);}
+'</div></div></section>'+
+'<section class="uz-sec" id="uzistrazi"><div class="uz-wrap"><div class="uz-h2 uz-rv">Istraži blog</div><form class="uz-search uz-rv" action="/search" method="get"><input name="q" type="search" placeholder="Pretraži tekstove"><button type="submit">Traži</button></form><div class="uz-xgrid" id="uzx"></div></div></section>';b.appendChild(af);
+var xg=document.getElementById('uzx');
+['PopularPosts2','Label1','BlogArchive1','Subscribe1','Followers1','Stats1'].forEach(function(id){var e=document.getElementById(id);if(e&&xg){var c=document.createElement('div');c.className='uz-xbox uz-rv';c.appendChild(e);xg.appendChild(c);}});
+}
 var f=document.createElement('div');f.className='uz-foot';
 f.innerHTML='<div class="uz-wrap uz-rv"><h4>Javi mi se</h4><p>Ako ti treba pomoć ili samo želiš da me pitaš nešto o poslu, piši mi ili me pozovi.</p><div class="ct"><a href="mailto:uroszavarkoduma@gmail.com">uroszavarkoduma@gmail.com</a><a href="tel:+381604855001">060 485 5001</a></div><div class="lk"><a href="https://dumaenterprise.com/magazin/">Magazin</a><a href="https://dumaenterprise.com/">Sajt</a><a href="https://www.linkedin.com/in/uro%C5%A1-zavarko-808b0b31a/">LinkedIn</a><a href="https://www.instagram.com/marketing_consulting_duma/">Instagram</a><a href="https://urosduma.github.io/Atelje/">Atelje</a></div></div>';
+var cf=document.getElementById('ContactForm1');if(cf&&home){var cw=document.createElement('div');cw.className='uz-cform';cw.appendChild(cf);f.querySelector('.uz-wrap').appendChild(cw);}
 b.appendChild(f);
 document.querySelectorAll('.post-outer-container').forEach(function(e){e.classList.add('uz-rv');});
 var rv=document.querySelectorAll('.uz-rv');
