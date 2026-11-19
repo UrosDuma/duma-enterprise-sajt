@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="sr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lider i preduzetnik, izdanje 1 | Duma Enterprise</title>
+<meta name="description" content="Lider i preduzetnik, izdanje 1 (19. novembar 2026): magazin za direktore, vlasnike i organizatore. Listajte ga online ili preuzmite PDF.">
+<link rel="canonical" href="https://dumaenterprise.com/magazin/izdanje-1/">
+<meta property="og:title" content="Lider i preduzetnik, izdanje 1"><meta property="og:type" content="article"><meta property="og:url" content="https://dumaenterprise.com/magazin/izdanje-1/"><meta property="og:image" content="https://dumaenterprise.com/magazin/izdanje-1/s-01.jpg">
+<style>
+html,body{margin:0;background:#17161a;color:#f1ece2;font:15px/1.5 Inter,system-ui,sans-serif}
+header{padding:16px max(16px,env(safe-area-inset-left));display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+h1{font:700 22px Georgia,serif;margin:0}
+a.b{color:#17161a;background:#D6B467;padding:9px 16px;text-decoration:none;font-weight:600;border-radius:2px}
+a.t{color:#D6B467}
+#stage{display:flex;justify-content:center;padding:8px 8px 24px}
+#book{margin:0 auto}
+.pg{background:#fff}.pg img{width:100%;height:100%;display:block}
+.ctl{display:flex;gap:10px;justify-content:center;padding-bottom:20px}
+.ctl button{background:#2a2930;color:#f1ece2;border:1px solid #444;padding:8px 18px;cursor:pointer;font-size:15px}
+article{max-width:70ch;margin:0 auto;padding:8px max(16px,env(safe-area-inset-left)) 40px;color:#cfc9bd}
+article h2{font:700 18px Georgia,serif;color:#f1ece2}
+</style></head><body>
+<header><h1>Lider i preduzetnik, izdanje 1</h1><span><a class="t" href="../../blog/">Magazin</a> &nbsp; <a class="b" href="../lider-i-preduzetnik-izdanje-1.pdf">Preuzmi PDF</a></span></header>
+<div id="stage"><div id="book"></div></div>
+<div class="ctl"><button id="pv" aria-label="Prethodna strana">&larr;</button><span id="cnt" style="align-self:center"></span><button id="nx" aria-label="Sledeća strana">&rarr;</button></div>
+<article>
+<h2>O izdanju</h2>
+<p>Magazin Lider i preduzetnik izlazi četvrtkom i namenjen je direktorima, vlasnicima firmi, HR menadžerima, ljudima iz ugostiteljstva i organizacije događaja. U prvom izdanju: Iza kulisa, saveti za kompanije, stručni tekstovi, intervju, pitanja nedelje, alat nedelje, polemika i vesti iz branše. Izdavač: Duma Enterprise DOO, Novi Sad. Sadržaj izdanja u celosti je u PDF-u.</p>
+<p>Za oglašavanje i saradnju pogledajte <a class="t" href="../../blog/#oglasavanje">Oglašavanje i saradnja</a>.</p>
+</article>
+<noscript><p style="padding:16px">Za listanje je potreban JavaScript. <a class="t" href="../lider-i-preduzetnik-izdanje-1.pdf">Preuzmite PDF</a>.</p></noscript>
+<script src="page-flip.browser.js"></script>
+<script>
+(function(){
+ var N=18,el=document.getElementById('book');
+ var W=Math.min(window.innerWidth-16,1000),single=W<700;
+ var pw=single?W:Math.floor(W/2),ph=Math.round(pw*1.414);
+ if(ph>window.innerHeight-130&&window.innerHeight>400){ph=window.innerHeight-130;pw=Math.round(ph/1.414)}
+ var pf=new St.PageFlip(el,{width:pw,height:ph,size:'fixed',showCover:true,usePortrait:true,mobileScrollSupport:true,maxShadowOpacity:.5,flippingTime:700});
+ var pages=[];for(var i=1;i<=N;i++){var d=document.createElement('div');d.className='pg';var im=new Image();im.src='s-'+(i<10?'0':'')+i+'.jpg';im.alt='Strana '+i;d.appendChild(im);pages.push(d)}
+ pf.loadFromHTML(pages);
+ function u(){document.getElementById('cnt').textContent=(pf.getCurrentPageIndex()+1)+' / '+N}
+ pf.on('flip',u);u();
+ document.getElementById('pv').onclick=function(){pf.flipPrev()};
+ document.getElementById('nx').onclick=function(){pf.flipNext()};
+})();
+</script></body></html>
