@@ -124,3 +124,9 @@ a,a:visited{color:var(--bordo) !important}
 .uz-cform input,.uz-cform textarea{width:100%;box-sizing:border-box;padding:10px 14px;margin:4px 0 8px;border:1px solid var(--bd);border-radius:12px;background:#fff;font:400 .95rem 'Inter',sans-serif;color:var(--ink)}
 .uz-cform input[type=button],.uz-cform input[type=submit]{width:auto;padding:11px 26px;border:0;border-radius:40px;background:linear-gradient(180deg,#3A2F24,#1F1812);color:var(--goldl);font-weight:700;cursor:pointer}
 @media (max-width:820px){.uz-xgrid{grid-template-columns:1fr}}
+
+.uz-xbox .PopularPosts article.post:nth-of-type(n+6){display:none !important}
+.uz-xbox .PopularPosts .popular-posts-snippet,.uz-xbox .PopularPosts .item-thumbnail,.uz-xbox .PopularPosts .item-content,.uz-xbox .PopularPosts .post-header{display:none !important}
+.uz-xbox .PopularPosts article.post{padding:8px 0;border-bottom:1px solid var(--bd)}
+.uz-xbox .PopularPosts .post-title,.uz-xbox .PopularPosts .post-title a{font-size:.95rem !important;line-height:1.35 !important;margin:0}
+.uz-xbox .Subscribe a,.uz-xbox .Followers a{font-weight:600}

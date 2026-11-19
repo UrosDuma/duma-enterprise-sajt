@@ -11,7 +11,7 @@ window.addEventListener('scroll',prog,{passive:true});prog();
 var CY={'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Ђ':'Đ','Е':'E','Ж':'Ž','З':'Z','И':'I','Ј':'J','К':'K','Л':'L','Љ':'Lj','М':'M','Н':'N','Њ':'Nj','О':'O','П':'P','Р':'R','С':'S','Т':'T','Ћ':'Ć','У':'U','Ф':'F','Х':'H','Ц':'C','Ч':'Č','Џ':'Dž','Ш':'Š','а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'đ','е':'e','ж':'ž','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','у':'u','ф':'f','х':'h','ц':'c','ч':'č','џ':'dž','ш':'š'};
 function lat(s){return s.replace(/[Ѐ-ӿ]/g,function(c){return CY[c]!==undefined?CY[c]:c;});}
 function fix(){
-var sel='.date-header,.post-timestamp,.published,time,.post-footer,.comment-link,.blog-pager,.widget h3,.jump-link,.read-more,.post-labels,.post-share-buttons';
+var sel='.date-header,.post-timestamp,.published,time,.post-footer,.comment-link,.blog-pager,.widget h3,.jump-link,.read-more,.post-labels,.post-share-buttons,.uz-xbox,.uz-cform,.uz-search,.Profile,.BlogSearch';
 document.querySelectorAll(sel).forEach(function(root){
 var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);var n;
 while((n=w.nextNode())){var t=n.nodeValue;if(!t||!t.trim())continue;var o=t;
@@ -20,6 +20,7 @@ t=t.replace(/read more\s*»?/i,'Pročitaj više →').replace(/Postavi komentar/
 t=t.replace(/^\s*(\S+)\s+(\d{1,2}),\s*(\d{4})\s*$/,function(m,mo,d,y){return (+d)+'. '+mo.toLowerCase()+' '+y+'.';});
 if(t!==o)n.nodeValue=t;}
 });
+document.querySelectorAll('.uz-cform input,.uz-cform textarea,.uz-cform button,.uz-xbox input,.BlogSearch input').forEach(function(i){['value','placeholder','aria-label','title'].forEach(function(a){var x=i.getAttribute(a);if(x&&/[Ѐ-ӿ]/.test(x))i.setAttribute(a,lat(x));});});
 document.querySelectorAll('a.jump-link,.jump-link a').forEach(function(a){if(/read more/i.test(a.textContent))a.textContent='Pročitaj više →';});
 }
 fix();setTimeout(fix,700);setTimeout(fix,2000);
