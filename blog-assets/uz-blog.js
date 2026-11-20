@@ -26,17 +26,17 @@ document.querySelectorAll('a.jump-link,.jump-link a').forEach(function(a){if(/re
 fix();setTimeout(fix,700);setTimeout(fix,2000);
 /* faze puta */
 var S=[
-['Kuvar','Od petog razreda osnovne','Od petog razreda osnovne znao sam da hoću da budem kuvar. Taj put sam i ostvario.'],
-['Ugostitelj','Ugostiteljstvo i Emirati','Rad u ugostiteljstvu i u inostranstvu. Razlog odlaska u Emirate ispunio sam kada sam otvorio svoju prvu radnju.'],
-['Vlasnik, jedan čovek','2018.','Prva preduzetnička radnja. Sa 24 godine ulazim u posao sam i nespreman, bez razumevanja konkurencije i ciljne grupe.'],
-['Organizacija događaja','Prvi događaji','Posao se širi na proslave i događaje: Cheers to 27, Gastro avantura, Gastro business networking.'],
-['Konsalting','Pomažem drugima','Savetujem firme i brendove u industriji događaja.'],
-['Edukacija','2019.','Postajem nastavnik i predavač: kuvarstvo i praktična nastava, kasnije i na visokoj školi.'],
-['Širenje firme','Od radnje do društva','Duma prerasta u Duma F&B, a zatim u društvo sa ograničenom odgovornošću, uz disciplinu i organizaciju.'],
-['Ketering menadžment','Ketering i salaš','Duma ketering i, od 2026, vođenje Dedinog salaša sa porodicom.'],
-['Marketing','Gradim brendove','Kreiramo brendove i marketing za sebe i za druge.'],
-['Menadžment firmi','Upravljanje firmama','Tim od više od 30 ljudi i 167 događaja u 2026. Vodim firmu kao menadžment i marketing agenciju.'],
-['Tehnologija i AI','Danas','Sopstvene aplikacije i tim AI agenata. Cilj je da firma preraste u tehnološku.']];
+['Kuvar','Od petog razreda osnovne','Od petog razreda osnovne znao sam da hoću da budem kuvar. Taj put sam i ostvario, i od njega je sve krenulo.'],
+['Ugostitelj','Ugostiteljstvo i Emirati','Radio sam u ugostiteljstvu, jedno vreme i u Emiratima. Ono zbog čega sam tamo otišao ostvario sam kada sam otvorio svoju prvu radnju.'],
+['Vlasnik, jedan čovek','2018.','Prva preduzetnička radnja. Sa 24 godine otvaram prvu radnju i radim sve sam. Bio sam nespreman: nisam razumeo ni konkurenciju ni ciljnu grupu. Iz tih grešaka sam najviše naučio.'],
+['Organizacija događaja','Prvi događaji','Posao se širi sa keteringa na cele događaje: proslave, firmine žurke i poslovna okupljanja, od ideje do poslednjeg gosta.'],
+['Konsalting','Pomažem drugima','Iskustvo koje sam stekao prenosim drugima: savetujem firme i brendove u industriji događaja.'],
+['Edukacija','2019.','Postajem nastavnik i predavač: učim mlade kuvarstvu i praktičnoj nastavi u srednjoj školi, a kasnije predajem i na visokoj školi.'],
+['Širenje firme','Od radnje do društva','Firma iz radnje prerasta u društvo sa ograničenom odgovornošću (DOO). Taj korak traži disciplinu, red i organizaciju.'],
+['Ketering menadžment','Ketering i salaš','Pored keteringa, od 2026. sa porodicom vodimo i Dedin salaš, event centar na Čeneju.'],
+['Marketing','Gradim brendove','Gradimo brendove i marketing, za sebe i za druge firme.'],
+['Menadžment firmi','Upravljanje firmama','Danas imamo tim od više od 30 ljudi i 167 događaja u 2026. Vodim firmu kao menadžment i marketing agenciju.'],
+['Tehnologija i AI','Danas','Pravimo sopstvene aplikacije i radimo sa timom AI agenata. Cilj je da firma preraste i u tehnološku.']];
 var PAL=['#7A2431','#7A2431','#7A2431','#8A6A1F','#8A6A1F','#8A6A1F','#A87E2A','#A87E2A','#A87E2A','#B8902E','#B8902E'];function col(i){return PAL[i];}
 function hex(i){return parseInt(PAL[i].slice(1),16);}
 var home=window.__UZ_HOME||(!/\.html$/.test(location.pathname)&&!/\/search/.test(location.pathname));
@@ -46,8 +46,9 @@ var w=document.createElement('div');
 var rail='';for(var i=0;i<S.length;i++)rail+='<span style="--c:'+col(i)+'"></span>';
 w.innerHTML=
 '<section class="uz-hero"><div class="uz-wrap"><div><p class="uz-kick uz-rv">Osnivač · Duma Enterprise</p><h2 class="uz-rv">Uroš Zavarko</h2><p class="uz-motto uz-rv">Uvek radi ono što zamisliš</p><p class="uz-txt uz-rv">Od petog razreda osnovne želeo sam da budem kuvar i taj put sam ostvario. Kroz rad i greške stigao sam do firme koja danas ima više od 30 ljudi, a sada ulazim u tehnologiju i AI. Ovde pišem o poslu, mladim preduzetnicima i o tome da je u Srbiji moguće uspeti pošteno i mlad. Oslonac mi je porodica.</p></div><div class="uz-scene uz-rv" id="uzscene"><span class="uz-tag" id="uztag"><b>01</b>Kuvar</span><div class="uz-ava"><img src="https://dumaenterprise.com/blog-assets/img/uros.jpg" alt="Uroš Zavarko"></div></div></div><div class="uz-rail"><div id="uzrail">'+rail+'</div></div></section>'+
-'<section class="uz-core"><div class="uz-wrap"><div class="uz-c uz-rv"><b>Disciplina</b><span>Rad svaki dan</span></div><div class="uz-c uz-rv"><b>Samopouzdanje</b><span>Vera u ono što radim</span></div><div class="uz-c uz-rv"><b>Znanje</b><span>Učenje bez prestanka</span></div><div class="uz-c fam uz-rv"><b>Porodica</b><span>Otac, majka i supruga</span></div></div></section>'+
-'<div class="uz-h uz-rv">Najnoviji tekstovi</div>';
+'<div class="uz-h uz-rv">Na čemu stojim</div>'+
+'<section class="uz-core"><div class="uz-wrap"><div class="uz-c uz-rv"><b>Disciplina</b><span>Rad svaki dan, ne samo kad mi se radi</span></div><div class="uz-c uz-rv"><b>Samopouzdanje</b><span>Vera u ono što radim, uz spremnost da učim iz grešaka</span></div><div class="uz-c uz-rv"><b>Znanje</b><span>Učim stalno i delim ono što naučim</span></div><div class="uz-c fam uz-rv"><b>Porodica</b><span>Otac, majka i supruga su moj oslonac u svemu</span></div></div></section>'+
+'<div class="uz-h uz-rv">Najnoviji tekstovi: o poslu, greškama i onome što sam naučio</div>';
 var anchor=hd.nextSibling;while(w.firstChild){hd.parentNode.insertBefore(w.firstChild,anchor);}
 }
 if(home){var af=document.createElement('div');af.className='uz-after';
@@ -57,9 +58,9 @@ af.innerHTML='<section class="uz-sec"><div class="uz-wrap"><div class="uz-h2 uz-
 '<div class="uz-box uz-rv"><b>Događaji i ketering</b><span>Duma ketering za firme, svadbe, rođendane i proslave, uz kompletnu organizaciju.</span></div>'+
 '<div class="uz-box uz-rv"><b>Dedin salaš</b><span>Event centar na Čeneju koji od 2026. sa porodicom vodimo.</span></div>'+
 '<div class="uz-box uz-rv"><b>Menadžment i marketing</b><span>Kreiramo brendove i vodimo druge firme u industriji događaja i konsaltinga.</span></div>'+
-'<div class="uz-box uz-rv"><b>Gastro akademija</b><span>Gastronomske radionice i obuke za firme i pojedince, u partnerstvu.</span></div>'+
-'<div class="uz-box uz-rv"><b>Gotovi događaji</b><span>Cheers to 27, Gastro avantura, Gastro business networking i Dan za decu.</span></div>'+
-'<div class="uz-box uz-rv"><b>AI i digitalni proizvodi</b><span>Sopstvene aplikacije i tim AI agenata.</span></div>'+
+'<div class="uz-box uz-rv"><b>Gastro akademija</b><span>Gastronomske radionice i obuke za firme i pojedince.</span></div>'+
+'<div class="uz-box uz-rv"><b>Gotovi događaji</b><span>Kompletni događaji koje firme mogu da ugovore u celini: Cheers to 27, Gastro avantura i Gastro business networking.</span></div>'+
+'<div class="uz-box uz-rv"><b>AI i digitalni proizvodi</b><span>Aplikacije koje sami pravimo i tim AI agenata koji nam pomaže u poslu.</span></div>'+
 '</div></div></section>'+
 '<section class="uz-sec"><div class="uz-wrap"><div class="uz-h2 uz-rv">Iz naše kuhinje</div><p class="uz-sub uz-rv">Pravi stolovi sa naših događaja.</p><div class="uz-gal"><figure class="uz-rv"><img loading="lazy" src="https://dumaenterprise.com/blog-assets/img/ketering-1.jpg" alt="Kanapei na drvenom stalku sa cvetnim aranžmanom"><figcaption>Kanapei i aranžman</figcaption></figure><figure class="uz-rv"><img loading="lazy" src="https://dumaenterprise.com/blog-assets/img/ketering-2.jpg" alt="Svečani sto sa kanapeima u zlatnim ramovima"><figcaption>Svečani sto</figcaption></figure><figure class="uz-rv"><img loading="lazy" src="https://dumaenterprise.com/blog-assets/img/detalj-1.jpg" alt="Detalj dekoracije stola"><figcaption>Detalj dekoracije</figcaption></figure></div></div></section>'+
 '<section class="uz-sec" id="uzistrazi"><div class="uz-wrap"><div class="uz-h2 uz-rv">Istraži blog</div><form class="uz-search uz-rv" action="/search" method="get"><input name="q" type="search" placeholder="Pretraži tekstove"><button type="submit">Traži</button></form><div class="uz-xgrid" id="uzx"></div></div></section>';b.appendChild(af);
