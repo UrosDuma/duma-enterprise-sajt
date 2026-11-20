@@ -131,3 +131,6 @@ if(reduce){setStage(S.length-1);rd.render(scn,cam);}else{setStage(0);setInterval
 if(sc){if(window.THREE){scene();}else{var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.onload=scene;document.head.appendChild(s);}}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+(function(){var M={'sta-svi-pocetnici-u-keteringu-trebaju':['ketering-1.jpg','Kanapei na drvenom stalku sa cvetnim aranžmanom'],'kako-se-pravilno-konzumira-svedski-sto':['ketering-2.jpg','Svečani sto sa kanapeima u zlatnim ramovima']};
+var m=location.pathname.match(/\/([^\/]+)\.html$/);if(!m||!M[m[1]])return;function go(){var pb=document.querySelector('.post-body');if(!pb||pb.querySelector('.uz-cover'))return;var f=document.createElement('p');f.style.textAlign='center';f.innerHTML='<img class="uz-cover" src="https://dumaenterprise.com/blog-assets/img/'+M[m[1]][0]+'" alt="'+M[m[1]][1]+'">';pb.insertBefore(f,pb.firstChild)}
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go)})();
