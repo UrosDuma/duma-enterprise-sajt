@@ -10,7 +10,7 @@ header{padding:16px max(16px,env(safe-area-inset-left));display:flex;flex-wrap:w
 h1{font:700 22px Georgia,serif;margin:0}
 a.b{color:#17161a;background:#D6B467;padding:9px 16px;text-decoration:none;font-weight:600;border-radius:2px}
 a.t{color:#D6B467}
-#stage{display:flex;justify-content:center;padding:8px 8px 24px}
+#stage{display:flex;justify-content:safe center;padding:8px 8px 24px;overflow:auto;max-height:calc(100vh - 150px);-webkit-overflow-scrolling:touch}#book{flex:none}
 #read{max-width:980px;margin:0 auto;padding:0 8px 24px}#read img{width:100%;height:auto;display:block;margin:0 0 14px;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.5)}
 .mode{display:flex;gap:10px;justify-content:center;padding:0 8px 14px}.mode button{background:#2a2930;color:#f1ece2;border:1px solid #444;padding:9px 18px;cursor:pointer;font-size:15px}.mode button.on{background:#D6B467;color:#17161a;border-color:#D6B467;font-weight:600}
 [hidden]{display:none!important}
@@ -25,7 +25,7 @@ article h2{font:700 18px Georgia,serif;color:#f1ece2}
 <div class="mode"><button id="mr" class="on">Čitaj</button><button id="mb">Listaj kao knjigu</button></div>
 <div id="read"></div>
 <div id="stage" hidden><div id="book"></div></div>
-<div class="ctl" hidden id="ctl"><button id="pv" aria-label="Prethodna strana">&larr;</button><span id="cnt" style="align-self:center"></span><button id="nx" aria-label="Sledeća strana">&rarr;</button></div>
+<div class="ctl" hidden id="ctl"><button id="pv" aria-label="Prethodna strana">&larr;</button><span id="cnt" style="align-self:center"></span><button id="nx" aria-label="Sledeća strana">&rarr;</button><button id="zo" aria-label="Umanji">&minus;</button><span id="zl" style="align-self:center;min-width:48px;text-align:center">100%</span><button id="zi" aria-label="Uvećaj">+ Uvećaj</button></div>
 <article>
 <h2>O izdanju</h2>
 <p>Magazin Lider i preduzetnik izlazi četvrtkom, na svakih 15 dana, i namenjen je direktorima, vlasnicima firmi, HR menadžerima, ljudima iz ugostiteljstva i organizacije događaja. U prvom izdanju: Iza kulisa, saveti za kompanije, stručni tekstovi, intervju, pitanja nedelje, alat nedelje, polemika i vesti iz branše. Izdavač: Duma Enterprise DOO, Novi Sad. Sadržaj izdanja u celosti je u PDF-u.</p>
@@ -38,21 +38,24 @@ article h2{font:700 18px Georgia,serif;color:#f1ece2}
  var N=16,rd=document.getElementById('read');
  function n2(i){return (i<10?'0':'')+i}
  for(var i=1;i<=N;i++){var im=new Image();im.src='s-'+n2(i)+'.jpg';im.alt='Strana '+i;im.loading=i<3?'eager':'lazy';rd.appendChild(im)}
- var pf=null,stage=document.getElementById('stage'),ctl=document.getElementById('ctl');
+ var Z=1,pf=null,stage=document.getElementById('stage'),ctl=document.getElementById('ctl');
  function build(){
-  var el=document.getElementById('book');el.innerHTML='';
-  var W=Math.min(window.innerWidth-16,1500),single=W<760;
+  var stage.innerHTML='<div id="book"></div>';el=document.getElementById('book');
+  var W=Math.min(window.innerWidth-16,1500),single=W<760;var cur=pf?pf.getCurrentPageIndex():0;if(pf){try{pf.destroy()}catch(e){}}stage.innerHTML='<div id="book"></div>';el=document.getElementById('book');
   var pw=single?W:Math.floor(W/2),ph=Math.round(pw*1.414);
-  var maxh=Math.max(window.innerHeight-120,420);
+  var maxh=Math.max(window.innerHeight-170,420);
   if(ph>maxh){ph=maxh;pw=Math.round(ph/1.414)}
+  pw=Math.round(pw*Z);ph=Math.round(ph*Z);
   pf=new St.PageFlip(el,{width:pw,height:ph,size:'fixed',showCover:true,usePortrait:true,mobileScrollSupport:true,maxShadowOpacity:.5,flippingTime:700});
   var pages=[];for(var i=1;i<=N;i++){var d=document.createElement('div');d.className='pg';var im=new Image();im.src='s-'+n2(i)+'.jpg';im.alt='Strana '+i;d.appendChild(im);pages.push(d)}
-  pf.loadFromHTML(pages);
+  pf.loadFromHTML(pages);if(cur>0)pf.turnToPage(cur);
   pf.on('flip',u);u();
  }
  function u(){document.getElementById('cnt').textContent=(pf.getCurrentPageIndex()+1)+' / '+N}
  document.getElementById('pv').onclick=function(){pf&&pf.flipPrev()};
  document.getElementById('nx').onclick=function(){pf&&pf.flipNext()};
+ function zoom(d){Z=Math.max(1,Math.min(3,Math.round((Z+d)*10)/10));document.getElementById('zl').textContent=Math.round(Z*100)+'%';build()}
+ document.getElementById('zi').onclick=function(){zoom(.5)};document.getElementById('zo').onclick=function(){zoom(-.5)};
  var mr=document.getElementById('mr'),mb=document.getElementById('mb');
  mr.onclick=function(){mr.className='on';mb.className='';rd.hidden=false;stage.hidden=true;ctl.hidden=true};
  mb.onclick=function(){mb.className='on';mr.className='';rd.hidden=true;stage.hidden=false;ctl.hidden=false;if(!pf)build()};
