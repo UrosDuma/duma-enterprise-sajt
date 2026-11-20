@@ -40,7 +40,7 @@ article h2{font:700 18px Georgia,serif;color:#f1ece2}
  for(var i=1;i<=N;i++){var im=new Image();im.src='s-'+n2(i)+'.jpg';im.alt='Strana '+i;im.loading=i<3?'eager':'lazy';rd.appendChild(im)}
  var Z=1,pf=null,stage=document.getElementById('stage'),ctl=document.getElementById('ctl');
  function build(){
-  var stage.innerHTML='<div id="book"></div>';el=document.getElementById('book');
+  var el;
   var W=Math.min(window.innerWidth-16,1500),single=W<760;var cur=pf?pf.getCurrentPageIndex():0;if(pf){try{pf.destroy()}catch(e){}}stage.innerHTML='<div id="book"></div>';el=document.getElementById('book');
   var pw=single?W:Math.floor(W/2),ph=Math.round(pw*1.414);
   var maxh=Math.max(window.innerHeight-170,420);
